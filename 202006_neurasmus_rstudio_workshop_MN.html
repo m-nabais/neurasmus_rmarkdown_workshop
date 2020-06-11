@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Marta Nabais" />
+  <title>Neurasmus webinar series</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link href="202006_neurasmus_rstudio_workshop_MN_files/slidy-2/styles/slidy.css" rel="stylesheet" />
+  <script src="202006_neurasmus_rstudio_workshop_MN_files/slidy-2/scripts/slidy.js"></script>
+  <script src="202006_neurasmus_rstudio_workshop_MN_files/slidy_shiny-1/slidy_shiny.js"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Neurasmus webinar series</h1>
+  <h1 class="subtitle">Introduction to R/Rstudio workshop</h1>
+  <p class="author">
+Marta Nabais
+  </p>
+  <p class="date">13/06/2020</p>
+</div>
+<div id="a-brief-acknowledgement" class="slide section level2 bigger">
+<h1>A brief acknowledgement</h1>
+<ul>
+<li><p>First, I would like to acknowledge <a href="https://www.yan-holtz.com">Yan Holtz</a> who introduced me to Rmarkdown.</p></li>
+<li><p>And <a href="https://www.epigenomicslab.com/eilis-hannon/">Eilis Hannon</a> who is a daily inspiration.</p></li>
+<li><p>And <a href="https://software-carpentry.org/lessons/index.html">Software carpentry</a> for their workshops.</p></li>
+<li><p>And <a href="https://r4ds.had.co.nz">R for Data Science</a>!</p></li>
+<li><p>This workshop is largely based on their teachings, but also my own independent learning.</p></li>
+<li><p>Note: you might know Yan from <a href="https://www.r-graph-gallery.com">R graph gallery</a>, which I highly recommend!</p></li>
+</ul>
+</div>
+<div id="rmarkdown-workshop-questionnaire" class="slide section level2">
+<h1>Rmarkdown workshop questionnaire</h1>
+<h3 id="where-are-you-located">Where are you located?</h3>
+<p><img src="202006_neurasmus_rstudio_workshop_MN_files/figure-slidy/participant_location-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="rmarkdown-workshop-questionnaire-1" class="slide section level2">
+<h1>Rmarkdown workshop questionnaire</h1>
+<h3 id="do-you-know-rmarkdown">Do you know Rmarkdown?</h3>
+<p><img src="202006_neurasmus_rstudio_workshop_MN_files/figure-slidy/questions1-1.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<div id="rmarkdown-workshop-questionnaire-2" class="slide section level2">
+<h1>Rmarkdown workshop questionnaire</h1>
+<h3 id="what-concepts-are-you-most-interested-in">What concepts are you most interested in?</h3>
+<p><img src="202006_neurasmus_rstudio_workshop_MN_files/figure-slidy/questions2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="workshop-outline" class="slide section level2">
+<h1>Workshop outline</h1>
+<table>
+<colgroup>
+<col width="16%" />
+<col width="34%" />
+<col width="48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Session</th>
+<th align="center">Activities summary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>11-12pm</td>
+<td>Introduction to Rstudio</td>
+<td align="center">Learning R basic data structures I</td>
+</tr>
+<tr class="even">
+<td>12-12:30pm</td>
+<td>Lunch break</td>
+<td align="center">Friendly banter &amp; lunch</td>
+</tr>
+<tr class="odd">
+<td>12:30-1:00pm</td>
+<td>Introduction to Rstudio II</td>
+<td align="center">Learning R basic data structures II</td>
+</tr>
+<tr class="even">
+<td>1:00-1:30pm</td>
+<td>Introduction to ggplot2</td>
+<td align="center">Learning data visualization tools</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="introduction-to-rstudio" class="slide section level2">
+<h1>Introduction to Rstudio</h1>
+<h3 id="by-the-end-of-the-session-youll-be-familiar-with">By the end of the session you’ll be familiar with:</h3>
+<ol class="incremental" style="list-style-type: decimal">
+<li>Rstudio integrated development environment (IDE)</li>
+<li>What are R packages and how to load them</li>
+<li>What is a script</li>
+<li>Basic R data types and structures I - vectors and matrices
+<center>
+<div class="tenor-gif-embed" data-postid="16612208" data-share-method="host" data-width="60%" data-aspect-ratio="1.4821428571428572">
+<a href="https://tenor.com/view/adventure-time-fin-and-jake-fin-jake-time-to-learn-gif-16612208">Adventure Time Fin And Jake GIF</a> from <a href="https://tenor.com/search/adventuretime-gifs">Adventuretime GIFs</a>
+</div>
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+</center></li>
+</ol>
+</div>
+<div id="what-are-r-and-rstudio" class="slide section level2 bigger">
+<h1>What are R and Rstudio?</h1>
+<ul>
+<li>R is an <strong>interpreted</strong> programming language that runs computations</li>
+<li>RStudio is an integrated development environment (IDE)</li>
+</ul>
+<br/>
+<div>
+<center>
+<a href="https://moderndive.netlify.app/1-getting-started.html"><img src ="https://moderndive.netlify.app/images/shutterstock/R_vs_RStudio_1.png" width="900px"></a>
+</center>
+</div>
+</div>
+<div id="what-are-r-packages" class="slide section level2">
+<h1>What are R packages?</h1>
+<ul>
+<li><p>R packages extend the functionality of R by providing additional functions, data, and documentation.</p></li>
+<li><p>They are written by a worldwide community of R users and can be downloaded for free from the internet.</p></li>
+<li><p>For example, among the many packages available are the <strong>ggplot2</strong> package <a href="https://cran.r-project.org/web/packages/ggplot2/index.html">(Wickham, Chang, et al. 2020)</a> for data visualization and <strong>readr</strong> <a href="https://cran.r-project.org/web/packages/readr/index.html">(Wickham et al., 2018)</a> to import tabular data. They are both part of <strong>tidyverse</strong> <a href="https://cran.r-project.org/web/packages/tidyverse/index.html">(Wickham et al., 2019)</a>, a package we will look at in future workshops.</p></li>
+</ul>
+<br/>
+<center>
+<a href="https://moderndive.netlify.app/1-getting-started.html"><img src ="https://moderndive.netlify.app/images/shutterstock/R_vs_R_packages.png" width="650px"></a>
+</center>
+
+</div>
+<div id="basic-r-data-types-and-structures" class="slide section level2 bigger">
+<h1>Basic R data types and structures</h1>
+<ul>
+<li>R has 6 basic data types (in addition to the five listed below, there is also raw).
+<ul>
+<li>character: “a”, “swc”</li>
+<li>numeric (real or decimal): 2, 15.5</li>
+<li>integer: 2L</li>
+<li>logical: TRUE, FALSE</li>
+<li>complex: 1+4i</li>
+</ul></li>
+<li>Elements of these data types may be combined to form data structures such as vectors.</li>
+</ul>
+</div>
+<div id="vectors" class="slide section level2">
+<h1>Vectors</h1>
+<ul>
+<li>Contrary to scalars, vectors have magnitude <strong>and</strong> direction:</li>
+</ul>
+<p><span class="math display">\[z = \begin{bmatrix}0 \\
+2\\
+4
+\end{bmatrix}\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>Function/symbol</th>
+<th>What does it do</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>c(…)</td>
+<td>The default method combines its arguments to form a vector</td>
+</tr>
+<tr class="even">
+<td>&lt;- or =</td>
+<td>Assign a value to an object/variable</td>
+</tr>
+<tr class="odd">
+<td>typeof(x)/class(x)</td>
+<td>Access the base type/class of an object</td>
+</tr>
+<tr class="even">
+<td>length(x)</td>
+<td>Access number of elements of an object</td>
+</tr>
+<tr class="odd">
+<td>[]</td>
+<td>Subsets the elements of a vector</td>
+</tr>
+<tr class="even">
+<td>+, -, /, *</td>
+<td>Scalar and vector mathematical operators</td>
+</tr>
+</tbody>
+</table>
+<p><br/> - Let’s create four different vectors:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="fl">5.3</span>,<span class="dv">6</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">4</span>) <span class="co"># numeric vector</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;one&quot;</span>,<span class="st">&quot;two&quot;</span>,<span class="st">&quot;three&quot;</span>) <span class="co"># character vector</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">c &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">TRUE</span>,<span class="ot">TRUE</span>,<span class="ot">FALSE</span>,<span class="ot">TRUE</span>,<span class="ot">FALSE</span>) <span class="co">#logical vector</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">d &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;1&quot;</span>, <span class="dv">1</span>, <span class="st">&quot;TRUE&quot;</span>, <span class="ot">TRUE</span>, <span class="st">&quot;Hello&quot;</span>)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co"># a, b, c  and d are variables or objects (in this case vector variables). </span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co"># Variables can store different data types.</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co"># 1. We can access the base type of an object:</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="kw">typeof</span>(a)</a></code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># 2. We can access the length of an object (i.e., the number of elements):</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">length</span>(a)</a></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># 3. We can access an element of a vector by indexing with []:</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">a[<span class="dv">1</span>]</a></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># 3.1 Or if we&#39;re interested in a subset of elements:</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">a[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]</a></code></pre></div>
+<pre><code>## [1] 1 2</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># 3.2 Or if we&#39;re interested in a range of elements:</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">a[<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>]</a></code></pre></div>
+<pre><code>## [1]  5.3  6.0 -2.0</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># 4. We can add, subtract, multiply and divide numeric vectors:</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">a <span class="op">+</span><span class="st"> </span>a</a></code></pre></div>
+<pre><code>## [1]  2.0  4.0 10.6 12.0 -4.0  8.0</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">a <span class="op">-</span><span class="st"> </span>a</a></code></pre></div>
+<pre><code>## [1] 0 0 0 0 0 0</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">a <span class="op">*</span><span class="st"> </span>a</a></code></pre></div>
+<pre><code>## [1]  1.00  4.00 28.09 36.00  4.00 16.00</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">a <span class="op">/</span><span class="st"> </span>a</a></code></pre></div>
+<pre><code>## [1] 1 1 1 1 1 1</code></pre>
+<p><br/></p>
+<h3 id="exercises-1">Exercises 1:</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># 1. Create a variable called &quot;vec1&quot; and assign it the vector </span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="co"># c(&quot;Hello&quot;, &quot;,&quot;, &quot;&quot;, &quot;world&quot;, &quot;!&quot;)</span></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="co"># 2. Find the number of elements of vec1.</span></a>
+<a class="sourceLine" id="cb19-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb19-6" data-line-number="6"><span class="co"># 3. Assign the 1st, 3rd and last elements of the vector to the variables </span></a>
+<a class="sourceLine" id="cb19-7" data-line-number="7"><span class="co"># x, y and z, respectively.</span></a>
+<a class="sourceLine" id="cb19-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb19-9" data-line-number="9"><span class="co"># 4. Run the following code: </span></a>
+<a class="sourceLine" id="cb19-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb19-11" data-line-number="11"><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The 1st element of vec1 is:&quot;</span>, x)) </a>
+<a class="sourceLine" id="cb19-12" data-line-number="12"><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The 3rd element of vec1 is:&quot;</span>, y))</a>
+<a class="sourceLine" id="cb19-13" data-line-number="13"><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The last element of vec1 is:&quot;</span>, z))</a>
+<a class="sourceLine" id="cb19-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb19-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb19-16" data-line-number="16"><span class="co"># 4.1 Why is the 3rd element of vec1 not printing anything? </span></a>
+<a class="sourceLine" id="cb19-17" data-line-number="17"><span class="co">#Is there a mistake in your code?</span></a>
+<a class="sourceLine" id="cb19-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb19-19" data-line-number="19"><span class="co"># 4.2 Could you access the last element of vec1? </span></a>
+<a class="sourceLine" id="cb19-20" data-line-number="20"><span class="co">#Did you use a built-in R function? If not, can you think of any?</span></a>
+<a class="sourceLine" id="cb19-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb19-22" data-line-number="22"><span class="co"># 4.3. What is the paste() function doing? </span></a>
+<a class="sourceLine" id="cb19-23" data-line-number="23"><span class="co"># How is it different from the c()? </span></a>
+<a class="sourceLine" id="cb19-24" data-line-number="24"><span class="co"># Hint: use the function length(). </span></a>
+<a class="sourceLine" id="cb19-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb19-26" data-line-number="26"><span class="co"># 5. What happens if you print vector d in the example above? </span></a>
+<a class="sourceLine" id="cb19-27" data-line-number="27"><span class="co"># What type has vector d?</span></a>
+<a class="sourceLine" id="cb19-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb19-29" data-line-number="29"><span class="co"># 6. Can you replace the 3rd element of vec1 y &quot;pretty&quot;? Hint: vectos are mutable and you can replace an element with [].</span></a></code></pre></div>
+<h3 id="optional-exercises">Optional Exercises:</h3>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li>Spend some time adding, multiplying, subtracting and dividing the vectors <em>a, b, c and d</em>. Are all operations allowed with every vector? Pay attention to the errors displayed! Do they make sense?</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li>How would you modify the first element of <em>a</em>?</li>
+</ol></li>
+</ul>
+</div>
+<div id="matrices" class="slide section level2">
+<h1>Matrices</h1>
+<ul>
+<li>A matrix is a collection of data elements arranged in a <strong>two-dimensional</strong> rectangular layout:</li>
+</ul>
+<p><span class="math display">\[X = \begin{bmatrix}0 &amp; 1\\
+2 &amp; 3\\
+4 &amp; 5
+\end{bmatrix}\]</span></p>
+<table>
+<colgroup>
+<col width="19%" />
+<col width="80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function/symbol</th>
+<th>What does it do</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE)</td>
+<td>Creates a matrix from the given set of values</td>
+</tr>
+<tr class="even">
+<td>print(x, …)</td>
+<td>Prints its argument</td>
+</tr>
+<tr class="odd">
+<td>head(x, …)</td>
+<td>Returns the first or last parts of a vector, matrix, table, data frame or function. Since head() and tail() are generic functions, they may also have been extended to other classes</td>
+</tr>
+<tr class="even">
+<td>dim(x)</td>
+<td>Retrieve or set the dimension of an object</td>
+</tr>
+<tr class="odd">
+<td>length(x)</td>
+<td>Get or set the length of vectors (including lists) and factors, and of any other R object for which a method has been defined</td>
+</tr>
+<tr class="even">
+<td>t(x)</td>
+<td>Given a matrix or data.frame x, t returns the transpose of x</td>
+</tr>
+<tr class="odd">
+<td>+, -, %*%</td>
+<td>Matrix mathematical operators</td>
+</tr>
+</tbody>
+</table>
+<p><br/> - All columns in a matrix must have the same mode(numeric, character, etc.) and the same length. We can easily generate a matrix in R:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co"># Generates 6 x 3 numeric matrix :</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">18</span>, <span class="dt">nrow=</span><span class="dv">6</span>, <span class="dt">ncol=</span><span class="dv">3</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="co"># 1. We can check the contents of a matrix:</span></a>
+<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="kw">print</span>(A) </a></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9
+## [4,]   10   11   12
+## [5,]   13   14   15
+## [6,]   16   17   18</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># 2. We can check the first 6 rows of a matrix:</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw">head</span>(A)</a></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9
+## [4,]   10   11   12
+## [5,]   13   14   15
+## [6,]   16   17   18</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co"># 2.1 Or the first n rows of a matrix:</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="kw">head</span>(A, <span class="dt">n =</span> <span class="dv">2</span>)</a></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="co"># 3. We can check the matrix dimensions</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="kw">dim</span>(A)</a></code></pre></div>
+<pre><code>## [1] 6 3</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="co"># 4. And perform basic algebra operations</span></a>
+<a class="sourceLine" id="cb28-2" data-line-number="2"><span class="co"># 4.1 Adding matrices</span></a>
+<a class="sourceLine" id="cb28-3" data-line-number="3">A <span class="op">+</span><span class="st"> </span>A</a></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    2    4    6
+## [2,]    8   10   12
+## [3,]   14   16   18
+## [4,]   20   22   24
+## [5,]   26   28   30
+## [6,]   32   34   36</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="co"># 4.2 Subtracting matrices</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2">A <span class="op">-</span><span class="st"> </span>A</a></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    0    0    0
+## [2,]    0    0    0
+## [3,]    0    0    0
+## [4,]    0    0    0
+## [5,]    0    0    0
+## [6,]    0    0    0</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="co"># 4.3 Multiplying matrices</span></a>
+<a class="sourceLine" id="cb32-2" data-line-number="2">B &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">18</span>, <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">6</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb32-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb32-4" data-line-number="4">A <span class="op">%*%</span><span class="st"> </span>B</a></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]   54   60   66   72   78   84
+## [2,]  117  132  147  162  177  192
+## [3,]  180  204  228  252  276  300
+## [4,]  243  276  309  342  375  408
+## [5,]  306  348  390  432  474  516
+## [6,]  369  420  471  522  573  624</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="co"># 4.4 Multiplying matrices by vectors</span></a>
+<a class="sourceLine" id="cb34-2" data-line-number="2">B <span class="op">%*%</span><span class="st"> </span>a</a></code></pre></div>
+<pre><code>##       [,1]
+## [1,]  58.9
+## [2,] 156.7
+## [3,] 254.5</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="co"># 5. Obtaining the transpose of a matrix</span></a>
+<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="kw">t</span>(B)</a></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    7   13
+## [2,]    2    8   14
+## [3,]    3    9   15
+## [4,]    4   10   16
+## [5,]    5   11   17
+## [6,]    6   12   18</code></pre>
+<h3 id="exercises-2">Exercises 2:</h3>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="co"># 1. Create the matrix X, from the example above and assign it to the variable X</span></a>
+<a class="sourceLine" id="cb38-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb38-3" data-line-number="3"><span class="co"># 1.2 Check your result with is.matrix() function, which should return TRUE.</span></a>
+<a class="sourceLine" id="cb38-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb38-5" data-line-number="5"><span class="co"># 2. Find the transpose of X and assign it to the variable Y. </span></a>
+<a class="sourceLine" id="cb38-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb38-7" data-line-number="7"><span class="co"># 3. What do X an Y look like?</span></a>
+<a class="sourceLine" id="cb38-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb38-9" data-line-number="9"><span class="co"># 4. Can you multiply X by itself? </span></a>
+<a class="sourceLine" id="cb38-10" data-line-number="10"><span class="co"># Hint: by the laws of linear algebra you shouldn&#39;t be able to!</span></a>
+<a class="sourceLine" id="cb38-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb38-12" data-line-number="12"><span class="co"># 4.1 What happens if you run the code: X * X? And X %*% X? What is the difference?</span></a>
+<a class="sourceLine" id="cb38-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb38-14" data-line-number="14"><span class="co"># 4.2 Can you multiply X by Y (remember Y = t(X))? Why is this matrix special?</span></a>
+<a class="sourceLine" id="cb38-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb38-16" data-line-number="16"><span class="co"># 4.3 Can you multiply Y by X? Is the matrix different from 2.2?</span></a>
+<a class="sourceLine" id="cb38-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb38-18" data-line-number="18"><span class="co"># 5. Just like with vectors, we can access and subset the elements of a matrix with []. Can you access the element on the 3rd row and 2nd column of X? </span></a>
+<a class="sourceLine" id="cb38-19" data-line-number="19"><span class="co"># Remember matrices are two-dimensional!</span></a></code></pre></div>
+<h3 id="optional-exercises-1">Optional Exercises:</h3>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li>Try to use the length() function with <em><strong>X</strong></em>. What does this give you? Hint: how do the results compare when you used it with <em>vec1</em>?</li>
+</ol></li>
+</ul>
+</div>
+<div id="introduction-to-rstudio-ii" class="slide section level2">
+<h1>Introduction to Rstudio II</h1>
+<h3 id="by-the-end-of-the-session-youll-be-familiar-with-1">By the end of the session you’ll be familiar with:</h3>
+<ul class="incremental">
+<li>Basic R data types and structures II - factors and data frames</li>
+<li>Importing data into Rstudio</li>
+</ul>
+</div>
+<div id="factors" class="slide section level2">
+<h1>Factors</h1>
+<ul>
+<li>Factors are also created using vectors</li>
+<li>Factors are variables in R used to represent <strong>categorical variables</strong>, i.e., variables that have a fixed and known set of possible values. Very important for statistical modeling!</li>
+<li>Factors are stored as <strong>integers</strong>, and have <strong>labels</strong> associated with these unique integers.</li>
+<li>Factors can often be a bit tricky, because many of the functions in base R automatically convert characters to factors. This means that factors often crop up in places where they’re not actually helpful…</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Function/symbol</th>
+<th>What does it do</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>factor(x, …)</td>
+<td>Used to encode a vector as a factor</td>
+</tr>
+<tr class="even">
+<td>levels(x)</td>
+<td>provides access to the levels attribute of a variable</td>
+</tr>
+<tr class="odd">
+<td>nlevels()</td>
+<td>Return the number of levels which its argument has</td>
+</tr>
+</tbody>
+</table>
+<p><br/> - Let’s create a vector first:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1">x1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Dec&quot;</span>, <span class="st">&quot;Jun&quot;</span>, <span class="st">&quot;Apr&quot;</span>, <span class="st">&quot;Jan&quot;</span>)</a>
+<a class="sourceLine" id="cb39-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb39-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb39-4" data-line-number="4"><span class="co"># 1. There are only 12 possible months and you can introduce typos</span></a>
+<a class="sourceLine" id="cb39-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb39-6" data-line-number="6">x2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Dec&quot;</span>, <span class="st">&quot;Jun&quot;</span>, <span class="st">&quot;Apr&quot;</span>, <span class="st">&quot;Jane&quot;</span>)</a>
+<a class="sourceLine" id="cb39-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb39-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb39-9" data-line-number="9"><span class="co"># 2. We can also try to sort the months, but this does not results in a meaningful sort</span></a>
+<a class="sourceLine" id="cb39-10" data-line-number="10"><span class="kw">sort</span>(x1)</a></code></pre></div>
+<pre><code>## [1] &quot;Apr&quot; &quot;Dec&quot; &quot;Jan&quot; &quot;Jun&quot;</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="co"># 2.1 To fix this, we can use factors!</span></a>
+<a class="sourceLine" id="cb41-2" data-line-number="2">month_levels &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Jan&quot;</span>, <span class="st">&quot;Feb&quot;</span>, <span class="st">&quot;Mar&quot;</span>,</a>
+<a class="sourceLine" id="cb41-3" data-line-number="3">                  <span class="st">&quot;Apr&quot;</span>, <span class="st">&quot;May&quot;</span>, <span class="st">&quot;Jun&quot;</span>,</a>
+<a class="sourceLine" id="cb41-4" data-line-number="4">                  <span class="st">&quot;Jul&quot;</span>, <span class="st">&quot;Aug&quot;</span>, <span class="st">&quot;Sep&quot;</span>,</a>
+<a class="sourceLine" id="cb41-5" data-line-number="5">                  <span class="st">&quot;Oct&quot;</span>, <span class="st">&quot;Nov&quot;</span>, <span class="st">&quot;Dec&quot;</span>)</a>
+<a class="sourceLine" id="cb41-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb41-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb41-8" data-line-number="8">y1 &lt;-<span class="st"> </span><span class="kw">factor</span>(x1, <span class="dt">levels =</span> month_levels)</a>
+<a class="sourceLine" id="cb41-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb41-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb41-11" data-line-number="11"><span class="co"># 2.2 Now the sort is meaningful:</span></a>
+<a class="sourceLine" id="cb41-12" data-line-number="12"><span class="kw">sort</span>(y1)</a></code></pre></div>
+<pre><code>## [1] Jan Apr Jun Dec
+## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="co"># 2.3 Also, any value not in the set will be converted to NA:</span></a>
+<a class="sourceLine" id="cb43-2" data-line-number="2">y2 &lt;-<span class="st"> </span><span class="kw">factor</span>(x2, <span class="dt">levels =</span> month_levels)</a>
+<a class="sourceLine" id="cb43-3" data-line-number="3">y2</a></code></pre></div>
+<pre><code>## [1] Dec  Jun  Apr  &lt;NA&gt;
+## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="co"># 3. To check the levels of a factor:</span></a>
+<a class="sourceLine" id="cb45-2" data-line-number="2"><span class="kw">levels</span>(y1)</a></code></pre></div>
+<pre><code>##  [1] &quot;Jan&quot; &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; &quot;May&quot; &quot;Jun&quot; &quot;Jul&quot; &quot;Aug&quot; &quot;Sep&quot; &quot;Oct&quot; &quot;Nov&quot; &quot;Dec&quot;</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="co"># 4. To check the number of levels of a factor:</span></a>
+<a class="sourceLine" id="cb47-2" data-line-number="2"><span class="kw">nlevels</span>(y1)</a></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="co"># 5. Sometimes the order of factors does not matter (most of the time it won&#39;t).</span></a>
+<a class="sourceLine" id="cb49-2" data-line-number="2"><span class="co"># Some examples where the order may be useful:</span></a>
+<a class="sourceLine" id="cb49-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb49-4" data-line-number="4">food &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;high&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>, <span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>))</a>
+<a class="sourceLine" id="cb49-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb49-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb49-7" data-line-number="7">food &lt;-<span class="st"> </span><span class="kw">factor</span>(food, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>))</a>
+<a class="sourceLine" id="cb49-8" data-line-number="8"><span class="kw">levels</span>(food)</a></code></pre></div>
+<pre><code>## [1] &quot;low&quot;    &quot;medium&quot; &quot;high&quot;</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="kw">min</span>(food) <span class="co"># doesn&#39;t work</span></a></code></pre></div>
+<pre><code>## Error in Summary.factor(structure(c(1L, 3L, 2L, 3L, 1L, 2L, 3L), .Label = c(&quot;low&quot;, : &#39;min&#39; not meaningful for factors</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">food &lt;-<span class="st"> </span><span class="kw">factor</span>(food, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>), <span class="dt">ordered =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb53-2" data-line-number="2"><span class="kw">levels</span>(food)</a></code></pre></div>
+<pre><code>## [1] &quot;low&quot;    &quot;medium&quot; &quot;high&quot;</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1"><span class="kw">min</span>(food) <span class="co"># works!</span></a></code></pre></div>
+<pre><code>## [1] low
+## Levels: low &lt; medium &lt; high</code></pre>
+<h3 id="exercises-3">Exercises 3:</h3>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="co"># 1. If x = c(1, 2, 3, 3, 5, 3, 2, 4, NA), what are the levels of factor(x)?</span></a>
+<a class="sourceLine" id="cb57-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb57-3" data-line-number="3"><span class="co"># 2. Call the print() function on factor(x). What is the ouptut? </span></a>
+<a class="sourceLine" id="cb57-4" data-line-number="4"><span class="co"># How is it different from printing a vector?</span></a>
+<a class="sourceLine" id="cb57-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb57-6" data-line-number="6"><span class="co"># 3. You have a vector representing levels of exercise undertaken by 5 subjects</span></a>
+<a class="sourceLine" id="cb57-7" data-line-number="7"><span class="co"># “l”, “n”, “n”, “i”, “l” ; n=none, l=light, i=intense</span></a>
+<a class="sourceLine" id="cb57-8" data-line-number="8"><span class="co"># What is the best way to represent this in R?</span></a>
+<a class="sourceLine" id="cb57-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb57-10" data-line-number="10"><span class="co"># 4. What happens when you run the following lines of code?</span></a>
+<a class="sourceLine" id="cb57-11" data-line-number="11">food &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;high&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>, <span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>)</a>
+<a class="sourceLine" id="cb57-12" data-line-number="12">food2 &lt;-<span class="st"> </span><span class="kw">factor</span>(food, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>), <span class="dt">ordered =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb57-13" data-line-number="13"><span class="kw">plot</span>(food)</a>
+<a class="sourceLine" id="cb57-14" data-line-number="14"><span class="kw">plot</span>(food2)</a></code></pre></div>
+</div>
+<div id="data-frames" class="slide section level2">
+<h1>Data-frames</h1>
+<ul>
+<li><p>Similar to a matrix, also a two-dimensional array which information is stored in tabular format, i.e., each column contains values of one variable and each row contains one set of values from each column.</p></li>
+<li>Data frames must have the following characteristics:</li>
+<li>The column names should be non-empty</li>
+<li>The row names should be unique</li>
+<li><p>The data stored in a data frame can be of <strong>numeric, factor or character</strong> type</p></li>
+<li><p>Each column should contain same number of data items</p></li>
+<li><p>Note that the almost all functions below can be used with matrices as well. However, if you are working with matrices, I would not recommend adding column or row names.</p></li>
+</ul>
+<table>
+<colgroup>
+<col width="23%" />
+<col width="76%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function/symbol</th>
+<th>What does it do</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>data.frame(…)</td>
+<td>Creates data frames, tightly coupled collections of variables</td>
+</tr>
+<tr class="even">
+<td>summary(object, …)</td>
+<td>Produces result summaries of the results of various model fitting functions or objects</td>
+</tr>
+<tr class="odd">
+<td>str()</td>
+<td>Compactly display the internal structure of an R object, a diagnostic function and an alternative to summary()</td>
+</tr>
+<tr class="even">
+<td>nrow(x) / ncol(x)</td>
+<td>nrow and ncol return the number of rows or columns present in x. Can also be used in matrices</td>
+</tr>
+<tr class="odd">
+<td>names(x)</td>
+<td>Functions to get or set the names of an object</td>
+</tr>
+<tr class="even">
+<td>rownames(x) / colnames(x)</td>
+<td>Functions to get or set the row names or column names of a matrix/data-frame</td>
+</tr>
+<tr class="odd">
+<td>data()</td>
+<td>Loads specified data sets, or list the available data sets</td>
+</tr>
+<tr class="even">
+<td>[n,m]</td>
+<td>Subsets data, just as for vectors. Can also be used with matrices!</td>
+</tr>
+<tr class="odd">
+<td>read.csv() / write.csv()</td>
+<td>Provides access to the levels attribute of a variable</td>
+</tr>
+<tr class="even">
+<td>read.table() / write.table()</td>
+<td>Return the number of levels which its argument has</td>
+</tr>
+<tr class="odd">
+<td>read.delim()</td>
+<td>Return the number of levels which its argument has</td>
+</tr>
+</tbody>
+</table>
+<p><br/> - Let’s explore our first data frames:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="co"># 1. Three ways we can work with data frames:</span></a>
+<a class="sourceLine" id="cb58-2" data-line-number="2"><span class="co"># 1.1 We can build our own</span></a>
+<a class="sourceLine" id="cb58-3" data-line-number="3">n &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>) </a>
+<a class="sourceLine" id="cb58-4" data-line-number="4">s &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;aa&quot;</span>, <span class="st">&quot;bb&quot;</span>, <span class="st">&quot;cc&quot;</span>, <span class="st">&quot;dd&quot;</span>) </a>
+<a class="sourceLine" id="cb58-5" data-line-number="5">b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>) </a>
+<a class="sourceLine" id="cb58-6" data-line-number="6">c &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>, <span class="st">&quot;intense&quot;</span>)) </a>
+<a class="sourceLine" id="cb58-7" data-line-number="7">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(n, s, b, c) </a>
+<a class="sourceLine" id="cb58-8" data-line-number="8"><span class="kw">print</span>(df) <span class="co"># notice the column names</span></a></code></pre></div>
+<pre><code>##   n  s     b       c
+## 1 2 aa  TRUE     low
+## 2 3 bb FALSE  medium
+## 3 5 cc  TRUE    high
+## 4 6 dd FALSE intense</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="co"># Alternatively you can build the data frame directly:</span></a>
+<a class="sourceLine" id="cb60-2" data-line-number="2">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;n&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>),</a>
+<a class="sourceLine" id="cb60-3" data-line-number="3">                 <span class="st">&quot;s&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;aa&quot;</span>, <span class="st">&quot;bb&quot;</span>, <span class="st">&quot;cc&quot;</span>, <span class="st">&quot;dd&quot;</span>),</a>
+<a class="sourceLine" id="cb60-4" data-line-number="4">                 <span class="st">&quot;b&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>),</a>
+<a class="sourceLine" id="cb60-5" data-line-number="5">                 <span class="st">&quot;c&quot;</span> =<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>, <span class="st">&quot;intense&quot;</span>)))</a>
+<a class="sourceLine" id="cb60-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb60-7" data-line-number="7"><span class="co"># The second method is preferred as it usually takes less time to run</span></a>
+<a class="sourceLine" id="cb60-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb60-9" data-line-number="9"><span class="co"># 1.2. We can load built-in datasets</span></a>
+<a class="sourceLine" id="cb60-10" data-line-number="10"><span class="kw">data</span>(mtcars)</a>
+<a class="sourceLine" id="cb60-11" data-line-number="11"><span class="kw">head</span>(mtcars)</a></code></pre></div>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="co"># 1.3 We can import a data frame from files with tabular format. E.g.,:</span></a>
+<a class="sourceLine" id="cb62-2" data-line-number="2">aneurism_dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/sample.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>) <span class="co"># Don&#39;t forget if the file is not in current working directory, you need to specify where it is!</span></a>
+<a class="sourceLine" id="cb62-3" data-line-number="3"><span class="kw">head</span>(aneurism_dat)</a></code></pre></div>
+<pre><code>##       ID Gender      Group BloodPressure  Age Aneurisms_q1 Aneurisms_q2
+## 1 Sub001      m    Control           132 16.0          114          140
+## 2 Sub002      m Treatment2           139 17.2          148          209
+## 3 Sub003      m Treatment2           130 19.5          196          251
+## 4 Sub004      f Treatment1           105 15.7          199          140
+## 5 Sub005      m Treatment1           125 19.9          188          120
+## 6 Sub006      M Treatment2           112 14.3          260          266
+##   Aneurisms_q3 Aneurisms_q4
+## 1          202          237
+## 2          248          248
+## 3          122          177
+## 4          233          220
+## 5          222          228
+## 6          320          294</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="co"># 2. There are two very useful functions to help you visualize the overall content of your data frame:</span></a>
+<a class="sourceLine" id="cb64-2" data-line-number="2"><span class="kw">summary</span>(aneurism_dat)</a></code></pre></div>
+<pre><code>##       ID               Gender             Group           BloodPressure  
+##  Length:100         Length:100         Length:100         Min.   : 62.0  
+##  Class :character   Class :character   Class :character   1st Qu.:107.5  
+##  Mode  :character   Mode  :character   Mode  :character   Median :117.5  
+##                                                           Mean   :118.6  
+##                                                           3rd Qu.:133.0  
+##                                                           Max.   :173.0  
+##       Age         Aneurisms_q1    Aneurisms_q2    Aneurisms_q3  
+##  Min.   :12.10   Min.   : 65.0   Min.   : 80.0   Min.   :105.0  
+##  1st Qu.:14.78   1st Qu.:118.0   1st Qu.:131.5   1st Qu.:182.5  
+##  Median :16.65   Median :158.0   Median :162.5   Median :217.0  
+##  Mean   :16.42   Mean   :158.8   Mean   :168.0   Mean   :219.8  
+##  3rd Qu.:18.30   3rd Qu.:188.0   3rd Qu.:196.8   3rd Qu.:248.2  
+##  Max.   :20.00   Max.   :260.0   Max.   :283.0   Max.   :323.0  
+##   Aneurisms_q4  
+##  Min.   :116.0  
+##  1st Qu.:186.8  
+##  Median :219.0  
+##  Mean   :217.9  
+##  3rd Qu.:244.2  
+##  Max.   :315.0</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="kw">str</span>(aneurism_dat)</a></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    100 obs. of  9 variables:
+##  $ ID           : chr  &quot;Sub001&quot; &quot;Sub002&quot; &quot;Sub003&quot; &quot;Sub004&quot; ...
+##  $ Gender       : chr  &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;f&quot; ...
+##  $ Group        : chr  &quot;Control&quot; &quot;Treatment2&quot; &quot;Treatment2&quot; &quot;Treatment1&quot; ...
+##  $ BloodPressure: int  132 139 130 105 125 112 173 108 131 129 ...
+##  $ Age          : num  16 17.2 19.5 15.7 19.9 14.3 17.7 19.8 19.4 18.8 ...
+##  $ Aneurisms_q1 : int  114 148 196 199 188 260 135 216 117 188 ...
+##  $ Aneurisms_q2 : int  140 209 251 140 120 266 98 238 215 144 ...
+##  $ Aneurisms_q3 : int  202 248 122 233 222 320 154 279 181 192 ...
+##  $ Aneurisms_q4 : int  237 248 177 220 228 294 245 251 272 185 ...</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="co"># 3. We can get the number of columns</span></a>
+<a class="sourceLine" id="cb68-2" data-line-number="2"><span class="kw">ncol</span>(aneurism_dat)</a></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1"><span class="co"># 4. Number of rows</span></a>
+<a class="sourceLine" id="cb70-2" data-line-number="2"><span class="kw">nrow</span>(aneurism_dat)</a></code></pre></div>
+<pre><code>## [1] 100</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1"><span class="co"># 5. And the column names</span></a>
+<a class="sourceLine" id="cb72-2" data-line-number="2"><span class="kw">names</span>(aneurism_dat) <span class="co"># or</span></a></code></pre></div>
+<pre><code>## [1] &quot;ID&quot;            &quot;Gender&quot;        &quot;Group&quot;         &quot;BloodPressure&quot;
+## [5] &quot;Age&quot;           &quot;Aneurisms_q1&quot;  &quot;Aneurisms_q2&quot;  &quot;Aneurisms_q3&quot; 
+## [9] &quot;Aneurisms_q4&quot;</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="kw">colnames</span>(aneurism_dat)</a></code></pre></div>
+<pre><code>## [1] &quot;ID&quot;            &quot;Gender&quot;        &quot;Group&quot;         &quot;BloodPressure&quot;
+## [5] &quot;Age&quot;           &quot;Aneurisms_q1&quot;  &quot;Aneurisms_q2&quot;  &quot;Aneurisms_q3&quot; 
+## [9] &quot;Aneurisms_q4&quot;</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="co"># 6. And the row names</span></a>
+<a class="sourceLine" id="cb76-2" data-line-number="2"><span class="kw">rownames</span>(aneurism_dat)</a></code></pre></div>
+<pre><code>##   [1] &quot;1&quot;   &quot;2&quot;   &quot;3&quot;   &quot;4&quot;   &quot;5&quot;   &quot;6&quot;   &quot;7&quot;   &quot;8&quot;   &quot;9&quot;   &quot;10&quot;  &quot;11&quot;  &quot;12&quot; 
+##  [13] &quot;13&quot;  &quot;14&quot;  &quot;15&quot;  &quot;16&quot;  &quot;17&quot;  &quot;18&quot;  &quot;19&quot;  &quot;20&quot;  &quot;21&quot;  &quot;22&quot;  &quot;23&quot;  &quot;24&quot; 
+##  [25] &quot;25&quot;  &quot;26&quot;  &quot;27&quot;  &quot;28&quot;  &quot;29&quot;  &quot;30&quot;  &quot;31&quot;  &quot;32&quot;  &quot;33&quot;  &quot;34&quot;  &quot;35&quot;  &quot;36&quot; 
+##  [37] &quot;37&quot;  &quot;38&quot;  &quot;39&quot;  &quot;40&quot;  &quot;41&quot;  &quot;42&quot;  &quot;43&quot;  &quot;44&quot;  &quot;45&quot;  &quot;46&quot;  &quot;47&quot;  &quot;48&quot; 
+##  [49] &quot;49&quot;  &quot;50&quot;  &quot;51&quot;  &quot;52&quot;  &quot;53&quot;  &quot;54&quot;  &quot;55&quot;  &quot;56&quot;  &quot;57&quot;  &quot;58&quot;  &quot;59&quot;  &quot;60&quot; 
+##  [61] &quot;61&quot;  &quot;62&quot;  &quot;63&quot;  &quot;64&quot;  &quot;65&quot;  &quot;66&quot;  &quot;67&quot;  &quot;68&quot;  &quot;69&quot;  &quot;70&quot;  &quot;71&quot;  &quot;72&quot; 
+##  [73] &quot;73&quot;  &quot;74&quot;  &quot;75&quot;  &quot;76&quot;  &quot;77&quot;  &quot;78&quot;  &quot;79&quot;  &quot;80&quot;  &quot;81&quot;  &quot;82&quot;  &quot;83&quot;  &quot;84&quot; 
+##  [85] &quot;85&quot;  &quot;86&quot;  &quot;87&quot;  &quot;88&quot;  &quot;89&quot;  &quot;90&quot;  &quot;91&quot;  &quot;92&quot;  &quot;93&quot;  &quot;94&quot;  &quot;95&quot;  &quot;96&quot; 
+##  [97] &quot;97&quot;  &quot;98&quot;  &quot;99&quot;  &quot;100&quot;</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="co"># 7. We can access components of a data-frame with [], [[]] or $</span></a>
+<a class="sourceLine" id="cb78-2" data-line-number="2">df[<span class="st">&quot;n&quot;</span>]</a></code></pre></div>
+<pre><code>##   n
+## 1 2
+## 2 3
+## 3 5
+## 4 6</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1">df[[<span class="st">&quot;n&quot;</span>]]</a></code></pre></div>
+<pre><code>## [1] 2 3 5 6</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1">df<span class="op">$</span>n <span class="co"># similar to [[]]</span></a></code></pre></div>
+<pre><code>## [1] 2 3 5 6</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="co"># 7.1 We can access the first three rows of a data frame:</span></a>
+<a class="sourceLine" id="cb84-2" data-line-number="2">df[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,]</a></code></pre></div>
+<pre><code>##   n  s     b      c
+## 1 2 aa  TRUE    low
+## 2 3 bb FALSE medium
+## 3 5 cc  TRUE   high</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1"><span class="co"># 7.2. Or the first three columns</span></a>
+<a class="sourceLine" id="cb86-2" data-line-number="2">df[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
+<pre><code>##   n  s     b
+## 1 2 aa  TRUE
+## 2 3 bb FALSE
+## 3 5 cc  TRUE
+## 4 6 dd FALSE</code></pre>
+<h3 id="exercises-4">Exercises 4:</h3>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="co"># 1. Try importing the samples.csv file on your own. Don&#39;t forget to give the object you store the data frame a meaningful name.</span></a>
+<a class="sourceLine" id="cb88-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb88-3" data-line-number="3"><span class="co"># 1.1. Why is it useful to use the summary() and str() functions in data frames? </span></a>
+<a class="sourceLine" id="cb88-4" data-line-number="4"><span class="co">#Hint: take a look at the Gender column, for example.</span></a>
+<a class="sourceLine" id="cb88-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb88-6" data-line-number="6"><span class="co"># 2. Some of the variables in your data frame seem to be coding factor variables. Take a look at the Gender variable with factor(df$Gender).</span></a>
+<a class="sourceLine" id="cb88-7" data-line-number="7"><span class="co"># Try to &quot;fix&quot; the Gender factor in the data frame (i.e., f = F and m = M). </span></a>
+<a class="sourceLine" id="cb88-8" data-line-number="8"><span class="co"># Hint: You can use the function toupper() or tolower() to convert characters to upper or lower case.</span></a>
+<a class="sourceLine" id="cb88-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb88-10" data-line-number="10"><span class="co"># 3. What is different when you access a data frame component with [], [[]] or $ ?</span></a>
+<a class="sourceLine" id="cb88-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb88-12" data-line-number="12"><span class="co"># 4. Can you change the element in the 4th row and &quot;Age&quot; column of your data frame to 20?</span></a>
+<a class="sourceLine" id="cb88-13" data-line-number="13"><span class="co"># Hint: Use the function class()</span></a></code></pre></div>
+<h3 id="optional-exercises-2">Optional Exercises</h3>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li>Try running the following on your data frame (replace df, by your data frame name): df[[1:3,]].Why doesn’t this work?</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li>Advanced: Extract rows that contain information for ages between 15 and 20</li>
+</ol></li>
+</ul>
+</div>
+<div id="visualizing-data-with-ggplot2" class="slide section level2">
+<h1>Visualizing data with ggplot2</h1>
+<ul>
+<li>This section is largely based on <a href="https://r4ds.had.co.nz">R for data science</a></li>
+<li>It will teach you how to visualize your data using <strong>ggplot2</strong></li>
+<li><strong>ggplot2</strong> is one of the core members of tidyverse, although we won’t be using tidyverse this time.</li>
+<li>Personally, I think it produces better quality figures than base R.</li>
+</ul>
+<h3 id="by-the-end-of-the-session-youll-be-familiar-with-2">By the end of the session you’ll be familiar with:</h3>
+<ul>
+<li>The <strong>ggplot2</strong> library</li>
+<li>Performing basic visualizations of the data</li>
+<li>Let’s start by installing and loading ggplot2:</li>
+</ul>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>, <span class="dt">repos =</span> <span class="st">&quot;https://cran.rstudio.com&quot;</span>)</a>
+<a class="sourceLine" id="cb89-2" data-line-number="2"><span class="kw">library</span>(ggplot2) <span class="co"># loads ggplot</span></a></code></pre></div>
+</div>
+<div id="creating-a-ggplot" class="slide section level2">
+<h1>Creating a ggplot</h1>
+<ul>
+<li>The next step is to load a data frame, which we have already done before. Let’s load the built-in mpg dataset:</li>
+</ul>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="kw">data</span>(mpg) </a>
+<a class="sourceLine" id="cb90-2" data-line-number="2"><span class="kw">head</span>(mpg)</a></code></pre></div>
+<pre><code>## # A tibble: 6 x 11
+##   manufacturer model displ  year   cyl trans      drv     cty   hwy fl    class 
+##   &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; 
+## 1 audi         a4      1.8  1999     4 auto(l5)   f        18    29 p     compa…
+## 2 audi         a4      1.8  1999     4 manual(m5) f        21    29 p     compa…
+## 3 audi         a4      2    2008     4 manual(m6) f        20    31 p     compa…
+## 4 audi         a4      2    2008     4 auto(av)   f        21    30 p     compa…
+## 5 audi         a4      2.8  1999     6 auto(l5)   f        16    26 p     compa…
+## 6 audi         a4      2.8  1999     6 manual(m5) f        18    26 p     compa…</code></pre>
+<ul>
+<li><p>The data frame is a 234 x 11 data frame, with the following columns:<br />
+manufacturer, model, displ, year, cyl, trans, drv, cty, hwy, fl, class.</p></li>
+<li><p>This dataset contains a subset of the fuel economy data that the EPA makes available on <a href="http://fueleconomy.gov" class="uri">http://fueleconomy.gov</a>. It contains only models which had a new release every year between 1999 and 2008 - this was used as a proxy for the popularity of the car.</p></li>
+<li><p>Let’s see what each variable looks like:</p></li>
+</ul>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="kw">str</span>(mpg)</a></code></pre></div>
+<pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    234 obs. of  11 variables:
+##  $ manufacturer: chr  &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; ...
+##  $ model       : chr  &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; ...
+##  $ displ       : num  1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...
+##  $ year        : int  1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...
+##  $ cyl         : int  4 4 4 4 6 6 6 4 4 4 ...
+##  $ trans       : chr  &quot;auto(l5)&quot; &quot;manual(m5)&quot; &quot;manual(m6)&quot; &quot;auto(av)&quot; ...
+##  $ drv         : chr  &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; ...
+##  $ cty         : int  18 21 20 21 16 18 18 18 16 20 ...
+##  $ hwy         : int  29 29 31 30 26 26 27 26 25 28 ...
+##  $ fl          : chr  &quot;p&quot; &quot;p&quot; &quot;p&quot; &quot;p&quot; ...
+##  $ class       : chr  &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; ...</code></pre>
+<ul>
+<li>We can now start to ask questions about the data and test our answers, visually. For example, <strong>do cars with big engines use more fuel than cars with small engines</strong>?</li>
+</ul>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></a>
+<a class="sourceLine" id="cb94-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) <span class="co"># displays a scatter plot</span></a></code></pre></div>
+<p><img src="202006_neurasmus_rstudio_workshop_MN_files/figure-slidy/mpg-1.png" width="480" /></p>
+<ul>
+<li><p>The plot shows a <strong>negative relationship</strong> between total engine size (displ) and fuel efficiency (hwy). In other words, cars with big engines use more fuel.</p></li>
+<li>With ggplot2 we begin a plot with the function <strong>ggplot</strong>. This creates a coordinate system that you can add layers to. The first argument in ggplot() is the dataset you are using.</li>
+<li>The graph is completed adding one more layer to ggplot(). The function <strong>geom_point()</strong> adds a layer of points to to the plot. There are a lot of <strong>geom</strong> functions.</li>
+<li><p>Each geom function in ggplot() takes a <strong>mapping</strong> argument, which defines how your variables are mapped to visual properties. The mapping argument is always linked to <strong>aes()</strong> and the <strong>x and y</strong> arguments specify which variables to map to the x and y axes.</p></li>
+</ul>
+<h3 id="exercises-5">Exercises 5:</h3>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="co"># 1. Run ggplot(data = mpg). What do you see?</span></a>
+<a class="sourceLine" id="cb95-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb95-3" data-line-number="3"><span class="co"># 2. How many rows are in mpg? How many columns?</span></a>
+<a class="sourceLine" id="cb95-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb95-5" data-line-number="5"><span class="co"># 3. What does the drv variable describe? Read help for ?mpg to find out.</span></a>
+<a class="sourceLine" id="cb95-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb95-7" data-line-number="7"><span class="co"># 4. Make a scatterplot of hwy versus cyl. </span></a>
+<a class="sourceLine" id="cb95-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb95-9" data-line-number="9"><span class="co"># 5. What happens if you make a scatterplot of class versus drv? Why is this plot not useful?</span></a></code></pre></div>
+</div>
+<div id="aesthetic-mappings" class="slide section level2">
+<h1>Aesthetic Mappings</h1>
+<ul>
+<li><p>In the plot we showed before, some cars with big engine size seem to fall outside of the linear trend (in red below): <img src="202006_neurasmus_rstudio_workshop_MN_files/figure-slidy/mpg2-1.png" width="480" /></p></li>
+<li><p>We can start by hypothesizing that these cars that have a larger engine, but higher fuel efficiency are <strong>hybrids</strong>. One way to test this is to look at the variable <strong>class</strong> which classifies cars into groups, such as compact, midsize, etc.</p></li>
+<li><p>We can add a third variable , like <strong>class</strong>, to a two-dimensional scatterplot inside <strong>aes()</strong>:</p></li>
+</ul>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></a>
+<a class="sourceLine" id="cb96-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">colour =</span> class)) </a></code></pre></div>
+<p><img src="202006_neurasmus_rstudio_workshop_MN_files/figure-slidy/mpg3-1.png" width="672" /></p>
+<ul>
+<li>ggplot2 automatixally assign a unique level of an aesthetic (here a unique colour) to each unique value of the variable, a process known as <em>scaling</em>. It will also add a <strong>legend</strong> that explains which levels correspond to each values.</li>
+<li><p>We can see from the colour legend that many of those unusual cars are actually two-seaters. They don’t seem to be like hybrids and they’re, in fact, sports cars!</p></li>
+<li><p>In ggplot2 there are other aesthetics. For example, we could assign the variable <strong>class</strong> to the <strong>size aesthetic</strong>:</p></li>
+</ul>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></a>
+<a class="sourceLine" id="cb97-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">size =</span> class)) </a></code></pre></div>
+<pre><code>## Warning: Using size for a discrete variable is not advised.</code></pre>
+<p><img src="202006_neurasmus_rstudio_workshop_MN_files/figure-slidy/mpg4-1.png" width="672" /></p>
+<ul>
+<li>This is not an ideal visualization, because size is an <strong>ordered aesthetic</strong>, while class is an <strong>unordered categorical variable</strong>.</li>
+<li>We can also map to the <strong>alpha</strong> aesthetic (top), or the <strong>shape</strong> (bottom) of the points:</li>
+</ul>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></a>
+<a class="sourceLine" id="cb99-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">alpha =</span> class)) </a></code></pre></div>
+<pre><code>## Warning: Using alpha for a discrete variable is not advised.</code></pre>
+<p><img src="202006_neurasmus_rstudio_workshop_MN_files/figure-slidy/mpg5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></a>
+<a class="sourceLine" id="cb101-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">shape =</span> class)) </a></code></pre></div>
+<pre><code>## Warning: The shape palette can deal with a maximum of 6 discrete values because
+## more than 6 becomes difficult to discriminate; you have 7. Consider
+## specifying shapes manually if you must have them.</code></pre>
+<pre><code>## Warning: Removed 62 rows containing missing values (geom_point).</code></pre>
+<p><img src="202006_neurasmus_rstudio_workshop_MN_files/figure-slidy/mpg5-2.png" width="672" /></p>
+<ul>
+<li><p>As you can see by the error message above ggplot2 will only use six shapes at a time. y default, additional groups will go unplotted when you use this aesthetic.</p></li>
+<li><p>You cal also <em>set</em> the aesthetic properties of your geom manually. For example, we can make all of the points green:</p></li>
+</ul>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></a>
+<a class="sourceLine" id="cb104-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy), <span class="dt">colour =</span> <span class="st">&quot;green&quot;</span>) </a></code></pre></div>
+<p><img src="202006_neurasmus_rstudio_workshop_MN_files/figure-slidy/mpg6-1.png" width="480" /></p>
+<ul>
+<li>Here, the colour doesn’t convery information about the variable, but it changes the <strong>appearance</strong> of the plot. You’ll always need to pick a value that:
+<ul>
+<li>The name of a color as a character string</li>
+<li>The size of a point in mm</li>
+<li>The shape of a point as a number as shown</li>
+</ul></li>
+</ul>
+<div>
+<center>
+<img src ="https://lh3.googleusercontent.com/proxy/nos-jS7pN9f2I9hv7xxPPaCXwE4W4yQM1xg0kp2aw7tyT2bjWZjSmXQjeYBWcVhjRc-Aus2gHkt1mDRR_RHOlE2_1ic1xhnIxNoa4ixLJnwNLNMrhqFh6BwME3Lerta0lxKooiz4vQA" width="300px">
+</center>
+</div>
+<p><br/></p>
+<h3 id="exercises-6">Exercises 6:</h3>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="co"># 1. What&#39;s gone wrong with this code? Why are the points not blue?</span></a>
+<a class="sourceLine" id="cb105-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></a>
+<a class="sourceLine" id="cb105-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(</a>
+<a class="sourceLine" id="cb105-4" data-line-number="4">    <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>)</a>
+<a class="sourceLine" id="cb105-5" data-line-number="5">  )</a></code></pre></div>
+<p><img src="202006_neurasmus_rstudio_workshop_MN_files/figure-slidy/ggplot2_viz2-1.png" width="672" /></p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="co"># 2. Which variables in mpg are categorical? Which variables are continuous? </span></a>
+<a class="sourceLine" id="cb106-2" data-line-number="2"><span class="co"># (Hint: type ?mpg to read the documentation for the dataset). </span></a>
+<a class="sourceLine" id="cb106-3" data-line-number="3"><span class="co"># How can you see this information when you run mpg?</span></a>
+<a class="sourceLine" id="cb106-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb106-5" data-line-number="5"><span class="co"># 3. Map a continuous variable to colour, size, and shape. </span></a>
+<a class="sourceLine" id="cb106-6" data-line-number="6"><span class="co"># How do these aesthetics behave differently for categorical versus continuous variables?</span></a>
+<a class="sourceLine" id="cb106-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb106-8" data-line-number="8"><span class="co"># 4. What happens if you map the same variable to multiple aesthetics?</span></a>
+<a class="sourceLine" id="cb106-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb106-10" data-line-number="10"><span class="co"># 5. What does the stroke aesthetic do? What shapes does it work with? (Hint: use ?geom_point)</span></a>
+<a class="sourceLine" id="cb106-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb106-12" data-line-number="12"><span class="co"># 6. What happens if you map an aesthetic to something other than a variable name, like aes(colour = displ &lt; 5)?</span></a></code></pre></div>
+</div>
+
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+</body>
+</html>
